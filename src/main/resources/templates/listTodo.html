@@ -4,14 +4,13 @@
     <title>Todo List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Todo App</h2>
-        <a class="btn btn-primary" th:href="@{/form}">Thêm công việc</a>
+        <a class="btn btn-primary" th:href="@{/todos/form}">Thêm công việc</a>
     </div>
 
     <div class="card shadow-sm">
@@ -35,15 +34,8 @@
                     <td th:text="${t.id}"></td>
                     <td th:text="${t.content}"></td>
                     <td th:text="${t.dueDate}"></td>
-                    <td>
-                        <span th:if="${t.status == 'PENDING'}">PENDING</span>
-                        <span th:if="${t.status == 'DONE'}">DONE</span>
-                    </td>
-                    <td>
-                        <span th:if="${t.priority == 'LOW'}">LOW</span>
-                        <span th:if="${t.priority == 'MEDIUM'}">MEDIUM</span>
-                        <span th:if="${t.priority == 'HIGH'}">HIGH</span>
-                    </td>
+                    <td th:text="${t.status}"></td>
+                    <td th:text="${t.priority}"></td>
                 </tr>
                 </tbody>
             </table>
